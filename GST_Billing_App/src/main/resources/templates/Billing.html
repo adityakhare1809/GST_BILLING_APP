@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Billing</title>
+</head>
+<body style="background-color:powderblue;">
+<h1>Search Product</h1>
+<form  action ="/search" th:object="${SearchedForm}" method="post">
+	<label for="ToSearch">Search</label>
+	<input type="text" id="ToSearch" name="ToSearch" autofocus="autofocus"/>
+	<br/>
+	<input type="submit" value="Search"></input>
+	</form>
+	
+	<div align="center">
+	
+	BILLING
+	
+<h1> Product Searched</h1>
+<form  action ="/cal" th:object="${CalForm}" method="post">
+<table border="1" cellpadding="10">
+	<thead>
+		<tr>
+		
+		<th>Product Id</th>
+		<th>Product Code</th>
+		<th>Product Name</th>
+		<th>Product Price</th>
+		<th>Product GST %</th>
+		<th>Quantity</th>
+		<th>Total Price (price+GST%)</th>
+		<th>Enter Quantity</th>
+		<th>Gross Amount to be paid</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr th:each="CalForm : ${SearchedProduct}">
+			<td th:text="${CalForm.id}" th:id="prID">Product Id</td>
+			<td th:text="${CalForm.product_code}" id="prCode">Product Code</td>
+			<td th:text="${CalForm.product_name}" id="prName">Product Name</td>
+			<td th:text="${CalForm.product_price}" id="prPrice">Product Price</td>
+			<td th:text="${CalForm.product_GST}" id="prGst">Product GST</td> 
+			<td th:text="${CalForm.Quantity}" >Quantity</td>
+			<td th:text="${CalForm.TotalPrice}" >TotalPrice</td>
+			<td><input type="text"id="Quantity" name="Quantity" autofocus="autofocus"/></td>
+			<td th:text="${CalForm.Gross}" >Gross</td>
+		</tr>
+	
+	</tbody>
+</table>
+<br/>
+	<input type="submit" value="Calculate"></input>
+</form>
+</div>
+<br/>
+<br/>	
+<a th:href="@{/pro}">Click for Product Entry Page>></a>
+</body>
+</html>

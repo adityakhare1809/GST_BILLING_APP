@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Product</title>
+</head>
+<body style="background-color:AquaMarine;">
+<div align="center">
+<h1>Edit Product Data </h1>
+<form  action ="/sub" th:object="${SubmitForm}" method="post">
+
+	<label for="id">Id</label>
+	<input type="text" id="id" name="id" autofocus="autofocus"/>
+	<br/>
+	<label for="product_code">product_code</label>
+	<input type="text" id="product_code" name="product_code" autofocus="autofocus"/>
+	<br/>
+	<label for="product_name">product_name</label>
+	<input type="text" id="product_name" name="product_name" autofocus="autofocus"/>
+	<br/>
+	<label for="product_price">product_price</label>
+	<input type="text" id="product_price" name="product_price" autofocus="autofocus"/>
+	<br/>
+	<label for="product_GST">product_GST</label>
+	<input type="text" id="product_GST" name="product_GST" autofocus="autofocus"/>
+	
+	
+	
+	<br/>
+	<input type="submit" value="Submit"></input>
+	
+</form>
+</div>
+
+</body>
+</html>
